@@ -2,6 +2,8 @@
 
 Application **Windows** moderne pour charger une vidéo, sélectionner une séquence à l'aide de marqueurs de début et de fin, et **exporter l'intégralité des trames** au format d'image de votre choix.
 
+![Capture d'écran de MP4 to Images Studio](docs/screenshot.png)
+
 ---
 
 ## ✨ Fonctionnalités
