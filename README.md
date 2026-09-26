@@ -28,8 +28,21 @@ Application **Windows** moderne pour charger une vidéo, sélectionner une séqu
 
 ---
 
-## 🚀 Démarrage rapide (avec Python installé)
+## 🚀 Démarrage rapide
 
+### Méthode 0 : Version compilée (recommandé !) 🎉
+Une version **prête à l'emploi, sans installation de Python**, est disponible dans les [Releases](https://github.com/john-lebrument/MP4-to-JPG/releases) :
+
+1. Rendez-vous sur la page [Releases](https://github.com/john-lebrument/MP4-to-JPG/releases)
+2. Téléchargez `MP4_to_Images_Studio.exe`
+3. Double-cliquez : l'application se lance directement, fonctionne sur n'importe quel PC Windows.
+
+---
+
+### Méthode 1 : Lancement silencieux (sans console)
+Double-cliquez sur **`Lancer_Application.vbs`** pour lancer l'application sans fenêtre de console noire en arrière-plan.
+
+### Méthode 2 : Avec Python installé
 ```bash
 python -m venv venv
 # Windows
@@ -39,9 +52,6 @@ python app.py
 ```
 
 Ou utilisez directement **`run.bat`** : il crée l'environnement virtuel s'il manque, installe les dépendances automatiquement, puis lance l'application.
-
-### Lancement silencieux (sans console)
-Double-cliquez sur **`Lancer_Application.vbs`** pour lancer l'application sans fenêtre de console.
 
 ---
 
