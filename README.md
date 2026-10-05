@@ -97,4 +97,4 @@ requirements.txt    # Dépendances Python
 
 ## 📄 Licence
 
-Projet sous licence MIT — voir [LICENSE](LICENSE).
+Projet sous licence PolyForm Noncommercial 1.0.0 : réutilisation, modification et redistribution pour des usages non commerciaux uniquement. Voir [LICENSE](LICENSE).
