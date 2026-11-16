@@ -16,6 +16,150 @@ from timeline_slider import TimelineSlider
 from extractor import FrameExtractorThread
 
 
+TRANSLATIONS = {
+    "fr": {
+        "app_title": "MP4 to Images Studio - Découpe & Extraction",
+        "open_video": "📂 Ouvrir une vidéo...",
+        "unload_video": "❌ Décharger la vidéo",
+        "unload_tooltip": "Décharger la vidéo actuelle et libérer le fichier pour pouvoir le supprimer ou le déplacer",
+        "no_file_selected": "Aucun fichier sélectionné (Glissez-déposez une vidéo ici)",
+        "mode_dark": "🌙 Mode Sombre",
+        "mode_light": "☀️ Mode Clair",
+        "tooltip_to_light": "Basculer vers le mode clair",
+        "tooltip_to_dark": "Basculer vers le mode sombre",
+        "btn_lang": "🇬🇧 English",
+        "tooltip_lang": "Switch language to English",
+        "drop_title": "Glissez-déposez votre vidéo ici",
+        "drop_subtitle": "ou cliquez pour parcourir (MP4, MKV, MOV, AVI, WEBM...)",
+        "prev_frame": "⏮ -1 trame",
+        "tooltip_prev_frame": "Reculer d'une trame (Touche Gauche)",
+        "next_frame": "⏭ +1 trame",
+        "tooltip_next_frame": "Avancer d'une trame (Touche Droite)",
+        "play": "▶ Lecture",
+        "pause": "⏸ Pause",
+        "tooltip_play_pause": "Lire / Mettre en pause (Espace ou clic vidéo)",
+        "marker_in": "📍 Début [In] (I)",
+        "tooltip_marker_in": "Définir le début de la séquence à extraire",
+        "marker_out": "🏁 Fin [Out] (O)",
+        "tooltip_marker_out": "Définir la fin de la séquence à extraire",
+        "whole_video": "🔄 Toute la vidéo",
+        "tooltip_whole_video": "Réinitialiser les marqueurs pour extraire toute la vidéo",
+        "sequence_default": "Séquence sélectionnée : Du début à la fin (0 image)",
+        "sequence_info": "📍 Début : {start}  |  🏁 Fin : {end}  |  ⏱ Durée : {duration}s  (~{count} image(s) à extraire)",
+        "export_options": "Options d'extraction",
+        "output_dir_label": "Dossier de sortie :",
+        "output_dir_placeholder": "Sélectionnez le dossier où enregistrer les images...",
+        "browse": "Parcourir...",
+        "open_dir": "📂 Ouvrir dossier",
+        "tooltip_open_dir": "Ouvrir le dossier dans l'Explorateur Windows",
+        "image_format": "Format d'image :",
+        "quality": "Qualité ({val}%) :",
+        "cadence": "Cadence :",
+        "step_all": "Toutes les images (100%)",
+        "step_2": "1 image sur 2",
+        "step_5": "1 image sur 5",
+        "step_10": "1 image sur 10",
+        "step_1s": "1 image par seconde",
+        "prefix_label": "Préfixe nom :",
+        "extract_btn": "🚀 Extraire les images",
+        "cancel_btn": "⏹ Annuler",
+        "starting_extract": "Démarrage de l'extraction...",
+        "cancelling": "Annulation en cours...",
+        "progress_status": "{current} / {total} images extraites{speed}",
+        "done_status": "Terminé : {total} images enregistrées !",
+        "error_status": "Erreur lors de l'extraction.",
+        "choose_video_title": "Choisir une vidéo",
+        "video_filter": "Vidéos (*.mp4 *.mov *.avi *.mkv *.wmv *.webm *.m4v);;Tous les fichiers (*.*)",
+        "choose_output_title": "Choisir le dossier racine de sortie",
+        "file_not_found": "Le fichier est introuvable : {path}",
+        "folder_not_found_title": "Dossier introuvable",
+        "folder_not_found_msg": "Le dossier n'existe pas encore. Il sera créé lors de l'extraction.",
+        "warning_title": "Attention",
+        "warn_no_video": "Veuillez charger une vidéo valide avant de lancer l'extraction.",
+        "warn_no_dir": "Veuillez spécifier un dossier de sortie.",
+        "warn_invalid_markers": "Le marqueur de fin doit être supérieur au marqueur de début.",
+        "extract_done_title": "Extraction terminée",
+        "extract_done_heading": "Extraction terminée !",
+        "extract_done_detail": "{total} images ont été extraites avec succès.",
+        "folder_label": "Dossier :",
+        "btn_open_folder": "Ouvrir le dossier",
+        "btn_close": "Fermer",
+        "error_title": "Erreur",
+        "meta_info": "📐 {w}x{h} | 🎞️ {fps:.2f} fps | {frames} images",
+    },
+    "en": {
+        "app_title": "MP4 to Images Studio - Trim & Extract",
+        "open_video": "📂 Open video...",
+        "unload_video": "❌ Unload video",
+        "unload_tooltip": "Unload the current video and release the file so you can delete or move it",
+        "no_file_selected": "No file selected (Drag & drop a video here)",
+        "mode_dark": "🌙 Dark Mode",
+        "mode_light": "☀️ Light Mode",
+        "tooltip_to_light": "Switch to light mode",
+        "tooltip_to_dark": "Switch to dark mode",
+        "btn_lang": "🇫🇷 Français",
+        "tooltip_lang": "Basculer l'application en français",
+        "drop_title": "Drag & drop your video here",
+        "drop_subtitle": "or click to browse (MP4, MKV, MOV, AVI, WEBM...)",
+        "prev_frame": "⏮ -1 frame",
+        "tooltip_prev_frame": "Step back 1 frame (Left Arrow)",
+        "next_frame": "⏭ +1 frame",
+        "tooltip_next_frame": "Step forward 1 frame (Right Arrow)",
+        "play": "▶ Play",
+        "pause": "⏸ Pause",
+        "tooltip_play_pause": "Play / Pause (Space or click on video)",
+        "marker_in": "📍 Start [In] (I)",
+        "tooltip_marker_in": "Set the start of the sequence to extract",
+        "marker_out": "🏁 End [Out] (O)",
+        "tooltip_marker_out": "Set the end of the sequence to extract",
+        "whole_video": "🔄 Whole video",
+        "tooltip_whole_video": "Reset markers to extract the entire video",
+        "sequence_default": "Selected sequence: From beginning to end (0 frames)",
+        "sequence_info": "📍 Start: {start}  |  🏁 End: {end}  |  ⏱ Duration: {duration}s  (~{count} frame(s) to extract)",
+        "export_options": "Extraction Options",
+        "output_dir_label": "Output folder:",
+        "output_dir_placeholder": "Select the folder where images will be saved...",
+        "browse": "Browse...",
+        "open_dir": "📂 Open folder",
+        "tooltip_open_dir": "Open folder in Windows Explorer",
+        "image_format": "Image format:",
+        "quality": "Quality ({val}%):",
+        "cadence": "Cadence:",
+        "step_all": "All frames (100%)",
+        "step_2": "1 frame every 2",
+        "step_5": "1 frame every 5",
+        "step_10": "1 frame every 10",
+        "step_1s": "1 frame per second",
+        "prefix_label": "Name prefix:",
+        "extract_btn": "🚀 Extract images",
+        "cancel_btn": "⏹ Cancel",
+        "starting_extract": "Starting extraction...",
+        "cancelling": "Cancelling...",
+        "progress_status": "{current} / {total} frames extracted{speed}",
+        "done_status": "Completed: {total} frames saved!",
+        "error_status": "Error during extraction.",
+        "choose_video_title": "Choose a video",
+        "video_filter": "Videos (*.mp4 *.mov *.avi *.mkv *.wmv *.webm *.m4v);;All files (*.*)",
+        "choose_output_title": "Choose base output folder",
+        "file_not_found": "File not found: {path}",
+        "folder_not_found_title": "Folder not found",
+        "folder_not_found_msg": "The folder does not exist yet. It will be created during extraction.",
+        "warning_title": "Warning",
+        "warn_no_video": "Please load a valid video before starting extraction.",
+        "warn_no_dir": "Please specify an output folder.",
+        "warn_invalid_markers": "The end marker must be greater than the start marker.",
+        "extract_done_title": "Extraction completed",
+        "extract_done_heading": "Extraction completed!",
+        "extract_done_detail": "{total} images have been successfully extracted.",
+        "folder_label": "Folder:",
+        "btn_open_folder": "Open folder",
+        "btn_close": "Close",
+        "error_title": "Error",
+        "meta_info": "📐 {w}x{h} | 🎞️ {fps:.2f} fps | {frames} frames",
+    }
+}
+
+
 DARK_STYLE = """
     QMainWindow {
         background-color: #1a1b1e;
@@ -90,14 +234,17 @@ DARK_STYLE = """
         background-color: #800f2f;
         color: #ffccd5;
     }
-    QPushButton#themeBtn {
+    QPushButton#themeBtn, QPushButton#langBtn {
         background-color: #2e3440;
         border: 1px solid #4c566a;
         font-weight: bold;
         color: #f1c40f;
     }
-    QPushButton#themeBtn:hover {
+    QPushButton#themeBtn:hover, QPushButton#langBtn:hover {
         background-color: #3b4252;
+    }
+    QPushButton#langBtn {
+        color: #61afef;
     }
     QPushButton#closeVideoBtn {
         background-color: #3b2024;
@@ -230,14 +377,17 @@ LIGHT_STYLE = """
     QPushButton#outBtn:hover {
         background-color: #fecdd3;
     }
-    QPushButton#themeBtn {
+    QPushButton#themeBtn, QPushButton#langBtn {
         background-color: #ffffff;
         border: 1px solid #cbd5e1;
         font-weight: bold;
         color: #334155;
     }
-    QPushButton#themeBtn:hover {
+    QPushButton#themeBtn:hover, QPushButton#langBtn:hover {
         background-color: #e2e8f0;
+    }
+    QPushButton#langBtn {
+        color: #0284c7;
     }
     QPushButton#closeVideoBtn {
         background-color: #fee2e2;
@@ -327,6 +477,10 @@ class DropPlaceholderWidget(QFrame):
         self.subtitle_label = QLabel("ou cliquez pour parcourir (MP4, MKV, MOV, AVI, WEBM...)")
         self.subtitle_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.subtitle_label)
+
+    def set_texts(self, title: str, subtitle: str):
+        self.title_label.setText(title)
+        self.subtitle_label.setText(subtitle)
 
     def update_theme(self, is_dark: bool):
         self._is_dark = is_dark
@@ -482,7 +636,6 @@ def format_ms(ms: int) -> str:
 class VideoExtractorApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("MP4 to Images Studio - Découpe & Extraction")
         self.resize(1100, 850)
         self.setMinimumSize(850, 680)
         self.setAcceptDrops(True)
@@ -497,8 +650,12 @@ class VideoExtractorApp(QMainWindow):
         # 1. Thème par défaut en CLAIR (False = Light, True = Dark)
         self.is_dark_mode = False
 
-        # 2. Gestion et persistance du dossier de sortie choisi par l'utilisateur
+        # 2. Gestion et persistance de la langue et du dossier de sortie
         self.settings = QSettings("MP4toImagesStudio", "Settings")
+        self.current_lang = self.settings.value("language", "fr")
+        if self.current_lang not in ("fr", "en"):
+            self.current_lang = "fr"
+            
         self.base_output_dir = self.settings.value("base_output_dir", "")
 
         self.extractor_thread = None
@@ -512,6 +669,24 @@ class VideoExtractorApp(QMainWindow):
         self._init_ui()
         self._setup_shortcuts()
         self._apply_theme()
+        self._update_ui_texts()
+
+    def t(self, key: str, **kwargs) -> str:
+        """Récupère la chaîne traduite dans la langue actuelle"""
+        lang_dict = TRANSLATIONS.get(self.current_lang, TRANSLATIONS["fr"])
+        template = lang_dict.get(key, TRANSLATIONS["fr"].get(key, key))
+        if kwargs:
+            try:
+                return template.format(**kwargs)
+            except Exception:
+                return template
+        return template
+
+    def toggle_language(self):
+        self.current_lang = "en" if self.current_lang == "fr" else "fr"
+        self.settings.setValue("language", self.current_lang)
+        self._update_ui_texts()
+        self._apply_theme()
 
     def toggle_theme(self):
         self.is_dark_mode = not self.is_dark_mode
@@ -520,8 +695,8 @@ class VideoExtractorApp(QMainWindow):
     def _apply_theme(self):
         if self.is_dark_mode:
             self.setStyleSheet(DARK_STYLE)
-            self.btn_theme.setText("☀️ Mode Clair")
-            self.btn_theme.setToolTip("Basculer vers le mode clair")
+            self.btn_theme.setText(self.t("mode_light"))
+            self.btn_theme.setToolTip(self.t("tooltip_to_light"))
             self.lbl_timecode.setStyleSheet("font-family: Consolas, monospace; font-size: 14px; font-weight: bold; color: #61afef;")
             self.lbl_sequence_info.setStyleSheet("color: #98c379; font-weight: 500; padding: 3px 0;")
             self.lbl_dimensions.setStyleSheet("color: #a0aec0; font-weight: 500;")
@@ -531,8 +706,8 @@ class VideoExtractorApp(QMainWindow):
                 self.lbl_file_info.setStyleSheet("color: #e4e7eb; font-weight: bold;")
         else:
             self.setStyleSheet(LIGHT_STYLE)
-            self.btn_theme.setText("🌙 Mode Sombre")
-            self.btn_theme.setToolTip("Basculer vers le mode sombre")
+            self.btn_theme.setText(self.t("mode_dark"))
+            self.btn_theme.setToolTip(self.t("tooltip_to_dark"))
             self.lbl_timecode.setStyleSheet("font-family: Consolas, monospace; font-size: 14px; font-weight: bold; color: #0284c7;")
             self.lbl_sequence_info.setStyleSheet("color: #15803d; font-weight: 500; padding: 3px 0;")
             self.lbl_dimensions.setStyleSheet("color: #475569; font-weight: 500;")
@@ -543,6 +718,79 @@ class VideoExtractorApp(QMainWindow):
 
         self.timeline.setDarkMode(self.is_dark_mode)
         self.drop_placeholder.update_theme(self.is_dark_mode)
+
+    def _update_ui_texts(self):
+        """Met à jour dynamiquement tous les textes de l'interface lors d'un changement de langue"""
+        self.setWindowTitle(self.t("app_title"))
+        self.btn_open.setText(self.t("open_video"))
+        self.btn_close_video.setText(self.t("unload_video"))
+        self.btn_close_video.setToolTip(self.t("unload_tooltip"))
+
+        if not self.current_video_path:
+            self.lbl_file_info.setText(self.t("no_file_selected"))
+
+        self.btn_lang.setText(self.t("btn_lang"))
+        self.btn_lang.setToolTip(self.t("tooltip_lang"))
+
+        if self.is_dark_mode:
+            self.btn_theme.setText(self.t("mode_light"))
+            self.btn_theme.setToolTip(self.t("tooltip_to_light"))
+        else:
+            self.btn_theme.setText(self.t("mode_dark"))
+            self.btn_theme.setToolTip(self.t("tooltip_to_dark"))
+
+        self.drop_placeholder.set_texts(self.t("drop_title"), self.t("drop_subtitle"))
+
+        self.btn_prev_frame.setText(self.t("prev_frame"))
+        self.btn_prev_frame.setToolTip(self.t("tooltip_prev_frame"))
+        self.btn_next_frame.setText(self.t("next_frame"))
+        self.btn_next_frame.setToolTip(self.t("tooltip_next_frame"))
+
+        if self.player.playbackState() == QMediaPlayer.PlaybackState.PlayingState:
+            self.btn_play_pause.setText(self.t("pause"))
+        else:
+            self.btn_play_pause.setText(self.t("play"))
+        self.btn_play_pause.setToolTip(self.t("tooltip_play_pause"))
+
+        self.btn_set_in.setText(self.t("marker_in"))
+        self.btn_set_in.setToolTip(self.t("tooltip_marker_in"))
+        self.btn_set_out.setText(self.t("marker_out"))
+        self.btn_set_out.setToolTip(self.t("tooltip_marker_out"))
+        self.btn_reset_selection.setText(self.t("whole_video"))
+        self.btn_reset_selection.setToolTip(self.t("tooltip_whole_video"))
+
+        # Export box
+        self.export_box.setTitle(self.t("export_options"))
+        self.lbl_output_dir.setText(self.t("output_dir_label"))
+        self.txt_output_dir.setPlaceholderText(self.t("output_dir_placeholder"))
+        self.btn_browse_dir.setText(self.t("browse"))
+        self.btn_open_output_dir.setText(self.t("open_dir"))
+        self.btn_open_output_dir.setToolTip(self.t("tooltip_open_dir"))
+
+        self.lbl_format.setText(self.t("image_format"))
+        self.lbl_quality.setText(self.t("quality", val=self.slider_quality.value()))
+        self.lbl_cadence.setText(self.t("cadence"))
+
+        # Step combo items
+        curr_step_idx = self.combo_step.currentIndex()
+        self.combo_step.setItemText(0, self.t("step_all"))
+        self.combo_step.setItemText(1, self.t("step_2"))
+        self.combo_step.setItemText(2, self.t("step_5"))
+        self.combo_step.setItemText(3, self.t("step_10"))
+        self.combo_step.setItemText(4, self.t("step_1s"))
+        if curr_step_idx >= 0:
+            self.combo_step.setCurrentIndex(curr_step_idx)
+
+        self.lbl_prefix.setText(self.t("prefix_label"))
+        self.btn_extract.setText(self.t("extract_btn"))
+        self.btn_cancel.setText(self.t("cancel_btn"))
+
+        # Update metadata & sequence display
+        if self.current_video_path and self.video_fps > 0:
+            self.lbl_dimensions.setText(
+                self.t("meta_info", w=self.video_width, h=self.video_height, fps=self.video_fps, frames=self.video_total_frames)
+            )
+        self._update_sequence_info()
 
     def _init_player(self):
         self.player = QMediaPlayer(self)
@@ -561,7 +809,7 @@ class VideoExtractorApp(QMainWindow):
         main_layout.setContentsMargins(14, 14, 14, 14)
         main_layout.setSpacing(10)
 
-        # 1. Top Bar: Open button + Unload button + File info + Theme switch
+        # 1. Top Bar: Open button + Unload button + File info + Theme switch + Language switch
         top_bar = QHBoxLayout()
         self.btn_open = QPushButton("📂 Ouvrir une vidéo...")
         self.btn_open.clicked.connect(self.choose_video_file)
@@ -569,7 +817,6 @@ class VideoExtractorApp(QMainWindow):
 
         self.btn_close_video = QPushButton("❌ Décharger la vidéo")
         self.btn_close_video.setObjectName("closeVideoBtn")
-        self.btn_close_video.setToolTip("Décharger la vidéo actuelle et libérer le fichier pour pouvoir le supprimer ou le déplacer")
         self.btn_close_video.setEnabled(False)
         self.btn_close_video.clicked.connect(self.unload_video)
         top_bar.addWidget(self.btn_close_video)
@@ -582,9 +829,15 @@ class VideoExtractorApp(QMainWindow):
 
         self.btn_theme = QPushButton("🌙 Mode Sombre")
         self.btn_theme.setObjectName("themeBtn")
-        self.btn_theme.setFixedWidth(120)
+        self.btn_theme.setFixedWidth(125)
         self.btn_theme.clicked.connect(self.toggle_theme)
         top_bar.addWidget(self.btn_theme)
+
+        self.btn_lang = QPushButton("🇬🇧 English")
+        self.btn_lang.setObjectName("langBtn")
+        self.btn_lang.setFixedWidth(115)
+        self.btn_lang.clicked.connect(self.toggle_language)
+        top_bar.addWidget(self.btn_lang)
 
         main_layout.addLayout(top_bar)
 
@@ -618,18 +871,15 @@ class VideoExtractorApp(QMainWindow):
         controls_layout.setSpacing(8)
 
         self.btn_prev_frame = QPushButton("⏮ -1 trame")
-        self.btn_prev_frame.setToolTip("Reculer d'une trame (Touche Gauche)")
         self.btn_prev_frame.clicked.connect(self.step_frame_backward)
         controls_layout.addWidget(self.btn_prev_frame)
 
         self.btn_play_pause = QPushButton("▶ Lecture")
-        self.btn_play_pause.setToolTip("Lire / Mettre en pause (Espace ou clic vidéo)")
         self.btn_play_pause.clicked.connect(self.toggle_play_pause)
         self.btn_play_pause.setFixedWidth(110)
         controls_layout.addWidget(self.btn_play_pause)
 
         self.btn_next_frame = QPushButton("⏭ +1 trame")
-        self.btn_next_frame.setToolTip("Avancer d'une trame (Touche Droite)")
         self.btn_next_frame.clicked.connect(self.step_frame_forward)
         controls_layout.addWidget(self.btn_next_frame)
 
@@ -643,18 +893,15 @@ class VideoExtractorApp(QMainWindow):
         # Marker In / Out Buttons
         self.btn_set_in = QPushButton("📍 Début [In] (I)")
         self.btn_set_in.setObjectName("inBtn")
-        self.btn_set_in.setToolTip("Définir le début de la séquence à extraire")
         self.btn_set_in.clicked.connect(self.set_current_as_in)
         controls_layout.addWidget(self.btn_set_in)
 
         self.btn_set_out = QPushButton("🏁 Fin [Out] (O)")
         self.btn_set_out.setObjectName("outBtn")
-        self.btn_set_out.setToolTip("Définir la fin de la séquence à extraire")
         self.btn_set_out.clicked.connect(self.set_current_as_out)
         controls_layout.addWidget(self.btn_set_out)
 
         self.btn_reset_selection = QPushButton("🔄 Toute la vidéo")
-        self.btn_reset_selection.setToolTip("Réinitialiser les marqueurs pour extraire toute la vidéo")
         self.btn_reset_selection.clicked.connect(self.reset_markers)
         controls_layout.addWidget(self.btn_reset_selection)
 
@@ -673,12 +920,13 @@ class VideoExtractorApp(QMainWindow):
         main_layout.addWidget(self.lbl_sequence_info)
 
         # 5. Export Settings Box
-        export_box = QGroupBox("Options d'extraction")
-        export_layout = QVBoxLayout(export_box)
+        self.export_box = QGroupBox("Options d'extraction")
+        export_layout = QVBoxLayout(self.export_box)
 
         # Row 1: Output directory
         dir_row = QHBoxLayout()
-        dir_row.addWidget(QLabel("Dossier de sortie :"))
+        self.lbl_output_dir = QLabel("Dossier de sortie :")
+        dir_row.addWidget(self.lbl_output_dir)
         self.txt_output_dir = QLineEdit()
         self.txt_output_dir.setPlaceholderText("Sélectionnez le dossier où enregistrer les images...")
         dir_row.addWidget(self.txt_output_dir, stretch=1)
@@ -688,7 +936,6 @@ class VideoExtractorApp(QMainWindow):
         dir_row.addWidget(self.btn_browse_dir)
 
         self.btn_open_output_dir = QPushButton("📂 Ouvrir dossier")
-        self.btn_open_output_dir.setToolTip("Ouvrir le dossier dans l'Explorateur Windows")
         self.btn_open_output_dir.clicked.connect(self.open_output_folder)
         dir_row.addWidget(self.btn_open_output_dir)
         export_layout.addLayout(dir_row)
@@ -698,7 +945,8 @@ class VideoExtractorApp(QMainWindow):
         opts_row.setSpacing(14)
 
         # Image format
-        opts_row.addWidget(QLabel("Format d'image :"))
+        self.lbl_format = QLabel("Format d'image :")
+        opts_row.addWidget(self.lbl_format)
         self.combo_format = QComboBox()
         self.combo_format.addItems(["JPG (.jpg)", "PNG (.png)", "WEBP (.webp)", "BMP (.bmp)"])
         self.combo_format.currentIndexChanged.connect(self._on_format_changed)
@@ -715,7 +963,8 @@ class VideoExtractorApp(QMainWindow):
         opts_row.addWidget(self.slider_quality)
 
         # Step / Frequency
-        opts_row.addWidget(QLabel("Cadence :"))
+        self.lbl_cadence = QLabel("Cadence :")
+        opts_row.addWidget(self.lbl_cadence)
         self.combo_step = QComboBox()
         self.combo_step.addItem("Toutes les images (100%)", 1)
         self.combo_step.addItem("1 image sur 2", 2)
@@ -726,7 +975,8 @@ class VideoExtractorApp(QMainWindow):
         opts_row.addWidget(self.combo_step)
 
         # Prefix
-        opts_row.addWidget(QLabel("Préfixe nom :"))
+        self.lbl_prefix = QLabel("Préfixe nom :")
+        opts_row.addWidget(self.lbl_prefix)
         self.txt_prefix = QLineEdit("frame")
         self.txt_prefix.setFixedWidth(90)
         opts_row.addWidget(self.txt_prefix)
@@ -734,7 +984,7 @@ class VideoExtractorApp(QMainWindow):
         opts_row.addStretch(1)
         export_layout.addLayout(opts_row)
 
-        main_layout.addWidget(export_box)
+        main_layout.addWidget(self.export_box)
 
         # 6. Extraction Action & Progress Bar
         action_layout = QHBoxLayout()
@@ -810,9 +1060,9 @@ class VideoExtractorApp(QMainWindow):
     def choose_video_file(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self,
-            "Choisir une vidéo",
+            self.t("choose_video_title"),
             "",
-            "Vidéos (*.mp4 *.mov *.avi *.mkv *.wmv *.webm *.m4v);;Tous les fichiers (*.*)"
+            self.t("video_filter")
         )
         if file_path:
             self.load_video(file_path)
@@ -841,7 +1091,7 @@ class VideoExtractorApp(QMainWindow):
         if not start_dir and self.current_video_path:
             start_dir = os.path.dirname(self.current_video_path)
 
-        chosen_dir = QFileDialog.getExistingDirectory(self, "Choisir le dossier racine de sortie", start_dir)
+        chosen_dir = QFileDialog.getExistingDirectory(self, self.t("choose_output_title"), start_dir)
         if chosen_dir:
             self.base_output_dir = chosen_dir
             self.settings.setValue("base_output_dir", self.base_output_dir)
@@ -849,7 +1099,7 @@ class VideoExtractorApp(QMainWindow):
 
     def load_video(self, file_path: str):
         if not os.path.isfile(file_path):
-            QMessageBox.critical(self, "Erreur", f"Le fichier est introuvable : {file_path}")
+            QMessageBox.critical(self, self.t("error_title"), self.t("file_not_found", path=file_path))
             return
 
         # 1. Déverrouiller et libérer immédiatement l'ancienne vidéo
@@ -879,7 +1129,7 @@ class VideoExtractorApp(QMainWindow):
             cap.release()
 
             self.lbl_dimensions.setText(
-                f"📐 {self.video_width}x{self.video_height} | 🎞️ {self.video_fps:.2f} fps | {self.video_total_frames} images"
+                self.t("meta_info", w=self.video_width, h=self.video_height, fps=self.video_fps, frames=self.video_total_frames)
             )
         else:
             self.video_fps = 25.0
@@ -910,15 +1160,15 @@ class VideoExtractorApp(QMainWindow):
 
         self.lbl_dimensions.setText("")
         self.lbl_timecode.setText("00:00:00.000 / 00:00:00.000")
-        self.lbl_sequence_info.setText("Séquence sélectionnée : Du début à la fin (0 image)")
-        self.lbl_file_info.setText("Aucun fichier sélectionné (Glissez-déposez une vidéo ici)")
+        self.lbl_sequence_info.setText(self.t("sequence_default"))
+        self.lbl_file_info.setText(self.t("no_file_selected"))
         if self.is_dark_mode:
             self.lbl_file_info.setStyleSheet("color: #8892b0; font-style: italic;")
         else:
             self.lbl_file_info.setStyleSheet("color: #64748b; font-style: italic;")
 
         self.btn_close_video.setEnabled(False)
-        self.btn_play_pause.setText("▶ Lecture")
+        self.btn_play_pause.setText(self.t("play"))
         self.progress_bar.setVisible(False)
         self.lbl_status.setText("")
 
@@ -937,9 +1187,9 @@ class VideoExtractorApp(QMainWindow):
 
     def _on_playback_state_changed(self, state):
         if state == QMediaPlayer.PlaybackState.PlayingState:
-            self.btn_play_pause.setText("⏸ Pause")
+            self.btn_play_pause.setText(self.t("pause"))
         else:
-            self.btn_play_pause.setText("▶ Lecture")
+            self.btn_play_pause.setText(self.t("play"))
 
     def toggle_play_pause(self):
         if self.player.playbackState() == QMediaPlayer.PlaybackState.PlayingState:
@@ -1004,8 +1254,7 @@ class VideoExtractorApp(QMainWindow):
         frames_to_extract = (total_frames_in_range + step - 1) // step if step > 0 else total_frames_in_range
 
         self.lbl_sequence_info.setText(
-            f"📍 Début : {format_ms(in_ms)}  |  🏁 Fin : {format_ms(out_ms)}  |  "
-            f"⏱ Durée : {diff_sec:.2f}s  (~{frames_to_extract} images à extraire)"
+            self.t("sequence_info", start=format_ms(in_ms), end=format_ms(out_ms), duration=f"{diff_sec:.2f}", count=frames_to_extract)
         )
 
     def _update_timecode_display(self):
@@ -1020,23 +1269,23 @@ class VideoExtractorApp(QMainWindow):
         self.slider_quality.setVisible(is_lossy)
 
     def _on_quality_changed(self, val: int):
-        self.lbl_quality.setText(f"Qualité ({val}%) :")
+        self.lbl_quality.setText(self.t("quality", val=val))
 
     def open_output_folder(self):
         out_dir = self.txt_output_dir.text().strip()
         if os.path.exists(out_dir):
             os.startfile(out_dir)
         else:
-            QMessageBox.information(self, "Dossier introuvable", "Le dossier n'existe pas encore. Il sera créé lors de l'extraction.")
+            QMessageBox.information(self, self.t("folder_not_found_title"), self.t("folder_not_found_msg"))
 
     def start_extraction(self):
         if not self.current_video_path or not os.path.exists(self.current_video_path):
-            QMessageBox.warning(self, "Attention", "Veuillez charger une vidéo valide avant de lancer l'extraction.")
+            QMessageBox.warning(self, self.t("warning_title"), self.t("warn_no_video"))
             return
 
         out_dir = self.txt_output_dir.text().strip()
         if not out_dir:
-            QMessageBox.warning(self, "Attention", "Veuillez spécifier un dossier de sortie.")
+            QMessageBox.warning(self, self.t("warning_title"), self.t("warn_no_dir"))
             return
 
         # Si le dossier de destination existe déjà et contient déjà des fichiers, créer un sous-dossier incrémenté pour ne pas mélanger
@@ -1053,7 +1302,7 @@ class VideoExtractorApp(QMainWindow):
         in_ms = self.timeline.getMarkerIn()
         out_ms = self.timeline.getMarkerOut()
         if out_ms <= in_ms:
-            QMessageBox.warning(self, "Attention", "Le marqueur de fin doit être supérieur au marqueur de début.")
+            QMessageBox.warning(self, self.t("warning_title"), self.t("warn_invalid_markers"))
             return
 
         fmt_text = self.combo_format.currentText()
@@ -1075,7 +1324,7 @@ class VideoExtractorApp(QMainWindow):
         self.btn_cancel.setVisible(True)
         self.progress_bar.setVisible(True)
         self.progress_bar.setValue(0)
-        self.lbl_status.setText("Démarrage de l'extraction...")
+        self.lbl_status.setText(self.t("starting_extract"))
 
         # Pause player
         self.player.pause()
@@ -1098,21 +1347,22 @@ class VideoExtractorApp(QMainWindow):
 
     def cancel_extraction(self):
         if self.extractor_thread and self.extractor_thread.isRunning():
-            self.lbl_status.setText("Annulation en cours...")
+            self.lbl_status.setText(self.t("cancelling"))
             self.extractor_thread.cancel()
 
     def _on_extraction_progress(self, current: int, total: int, percent: int, fps: float):
         self.progress_bar.setValue(percent)
-        speed_str = f" ({fps:.1f} img/s)" if fps > 0 else ""
-        self.lbl_status.setText(f"{current} / {total} images extraites{speed_str}")
+        unit = "fps" if self.current_lang == "en" else "img/s"
+        speed_str = f" ({fps:.1f} {unit})" if fps > 0 else ""
+        self.lbl_status.setText(self.t("progress_status", current=current, total=total, speed=speed_str))
 
     def _on_extraction_finished(self, total_extracted: int, out_dir: str):
         self.btn_extract.setEnabled(True)
         self.btn_cancel.setVisible(False)
-        self.lbl_status.setText(f"Terminé : {total_extracted} images enregistrées !")
+        self.lbl_status.setText(self.t("done_status", total=total_extracted))
 
         msg_box = QMessageBox(self)
-        msg_box.setWindowTitle("Extraction terminée")
+        msg_box.setWindowTitle(self.t("extract_done_title"))
         msg_box.setStyleSheet(self.styleSheet())
 
         # Couleurs à contraste garanti quel que soit le thème Windows
@@ -1125,16 +1375,20 @@ class VideoExtractorApp(QMainWindow):
             succ_col = "#15803d"
             path_col = "#0369a1"
 
+        heading = self.t("extract_done_heading")
+        detail = self.t("extract_done_detail", total=total_extracted)
+        f_label = self.t("folder_label")
+
         msg_box.setText(
-            f"<div style='color: {title_col}; font-size: 15px; font-weight: bold; margin-bottom: 4px;'>Extraction terminée !</div>"
-            f"<div style='color: {succ_col}; font-size: 13px; font-weight: 600;'>{total_extracted} images ont été extraites avec succès.</div>"
+            f"<div style='color: {title_col}; font-size: 15px; font-weight: bold; margin-bottom: 4px;'>{heading}</div>"
+            f"<div style='color: {succ_col}; font-size: 13px; font-weight: 600;'>{detail}</div>"
         )
         msg_box.setInformativeText(
-            f"<div style='color: {path_col}; font-size: 12px; margin-top: 8px;'><b>Dossier :</b> {out_dir}</div>"
+            f"<div style='color: {path_col}; font-size: 12px; margin-top: 8px;'><b>{f_label}</b> {out_dir}</div>"
         )
 
-        btn_open = msg_box.addButton("Ouvrir le dossier", QMessageBox.ButtonRole.ActionRole)
-        msg_box.addButton("Fermer", QMessageBox.ButtonRole.RejectRole)
+        btn_open = msg_box.addButton(self.t("btn_open_folder"), QMessageBox.ButtonRole.ActionRole)
+        msg_box.addButton(self.t("btn_close"), QMessageBox.ButtonRole.RejectRole)
         msg_box.exec()
 
         if msg_box.clickedButton() == btn_open:
@@ -1144,8 +1398,8 @@ class VideoExtractorApp(QMainWindow):
     def _on_extraction_error(self, err_msg: str):
         self.btn_extract.setEnabled(True)
         self.btn_cancel.setVisible(False)
-        self.lbl_status.setText("Erreur lors de l'extraction.")
-        QMessageBox.critical(self, "Erreur", err_msg)
+        self.lbl_status.setText(self.t("error_status"))
+        QMessageBox.critical(self, self.t("error_title"), err_msg)
 
     def closeEvent(self, event):
         """Gestion propre de la fermeture : libération des verrous de fichiers et arrêt des threads"""

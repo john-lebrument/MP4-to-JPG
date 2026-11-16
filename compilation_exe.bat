@@ -26,10 +26,12 @@ pyinstaller --noconsole --onefile --icon=icon.ico --add-data="icon.png;." --add-
 
 echo.
 if exist "dist\MP4_to_Images_Studio.exe" (
+    copy /y "dist\MP4_to_Images_Studio.exe" "MP4_to_Images_Studio.exe" > nul
     echo ======================================================
     echo [SUCCES] Compilation reussie !
     echo.
     echo Votre application autonome se trouve ici :
+    echo    MP4_to_Images_Studio.exe
     echo    dist\MP4_to_Images_Studio.exe
     echo.
     echo Vous pouvez copier ce fichier .exe sur N'IMPORTE QUEL PC
